@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My E-commerce Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="shop-name">Shopping Cart</div>
+            <div class="menu-icon" onclick="toggleMenu()">
+                &#9776; <!-- This represents the hamburger menu icon -->
+            </div>
+            <ul class="nav-items">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="men.html">Men</a></li>
+                <li><a href="women.html">Women</a></li>
+                <li><a href="children.html">Children</a></li>
+                <li><a href="other.html" class="active">Electronics</a></li>
+                <li><a href="cart.html">My Cart</a></li>
+                <li><a href="orders.html">My Orders</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+
+        <section class="product" id="product-3">
+            
+            <img src="https://i.gadgets360cdn.com/products/large/oneplus-open-db-746x800-1697732897.jpg?downsize=240:*" alt="Product 2" width="280" height="200">
+            <h3>Phone 1</h3>
+            <p>₹18000.00</p> <span class="offer">New Collection</span><br>
+            <p><b> All Colours Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('phone-1', 18000.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('phone-1', 18000.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-phone-1"></div>
+        </section>
+        <section class="product" id="product-1">
+             
+            <img src="https://www.khoslaonline.com/wp-content/uploads/2023/10/81JoY4p-ZL._SX679_-300x300.jpg" alt="Product 1" width="280" height="200">
+             <h3>Phone 2</h3>
+            <p>₹15000.00</p> <span class="offer">New Collection</span><br>
+            <p><b> All Colours Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('phone-2', 15000.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('phone-2', 15000.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-phone-2"></div>
+        </section>
+        <section class="product" id="product-1">
+             
+            <img src="https://m.media-amazon.com/images/I/61kh7cRmz9L._AC_UF1000,1000_QL80_.jpg" alt="Product 1" width="280" height="200">
+             <h3>360 Camera</h3>
+            <p>₹20000.00</p> <span class="offer">New Collection</span><br>
+            <p><b> All Colours Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('360camera', 800.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('360camera', 800.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-360camera"></div>
+        </section>
+        <section class="product" id="product-1">
+             
+            <img src="https://x.imastudent.com/content/0021248_nikon-z5-mirrorless-camera-with-24-200mm-lens-with-extra-battery-en-el15c_500.jpeg" alt="Product 1" width="280" height="200">
+             <h3>Camera</h3>
+            <p>₹80000.00</p> <span class="offer">New Collection</span><br>
+            <p><b> All Colours Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('camera', 80000.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('camera', 80000.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-camera"></div>
+        </section>
+        <section class="product" id="product-1">
+             
+            <img src="https://m.media-amazon.com/images/I/91rdfp9ukiL._AC_UF1000,1000_QL80_.jpg" alt="Product 1" width="280" height="200">
+             <h3>Speaker-1</h3>
+            <p>₹30000.00</p> <span class="offer">New Collection</span><br>
+            <p><b> All Colours Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('speaker-1', 800.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('speaker-1', 800.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-speaker-1"></div>
+        </section>
+        <section class="product" id="product-1">
+             
+            <img src="https://m.media-amazon.com/images/I/81umSqFh++L.jpg" alt="Product 1" width="280" height="200">
+             <h3>Speaker-2</h3>
+            <p>₹25000.00</p> <span class="offer">New Collection</span><br>
+            <p><b> All Colours Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('speaker-2', 25000.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('speaker-2', 25000.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-speaker-2"></div>
+        </section>
+       
+        <section class="product" id="product-1">
+             
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9yRp1Q3yu0sZkxJRPRD0n7L5S-yM5Ynv0JaNO9i46yP8Rk28Rs5pdCESScJgkQ05YZl4&usqp=CAU" alt="Product 1" width="280" height="200">
+             <h3>PS-3</h3>
+            <p>₹50000.00</p> <span class="offer">New Collection</span><br>
+            <p><b> All Colours Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('ps3', 50000.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('ps3', 50000.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-ps3"></div>
+        </section>
+        <section class="product" id="product-1">
+             
+            <img src="https://assetsio.gnwcdn.com/playstation-5-review-digitalfoundry-1604678146723.jpg?width=1200&height=900&fit=crop&quality=100&format=png&enable=upscale&auto=webp" alt="Product 1" width="280" height="200">
+             <h3>PS-5</h3>
+            <p>₹80000.00</p> <span class="offer">New Collection</span><br>
+            <p><b> All Colours Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('ps-5', 80000.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('ps-5', 80000.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-ps-5"></div>
+        </section>
+       
+        <section class="product" id="product-1">
+             
+            <img src="https://images-cdn.ubuy.co.in/633aec3932fb2b697f1d028e-gaming-headset-ps5-ps4-headset-with-7-1.jpg" alt="Product 1" width="280" height="200">
+             <h3>Headset-1</h3>
+            <p>₹8000.00</p> <span class="offer">New Collection</span><br>
+            <p><b> All Colours Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('headset-1', 8000.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('headset-1', 8000.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-headset-1"></div>
+        </section>
+       
+        <section class="product" id="product-1">
+             
+            <img src="https://content.jdmagicbox.com/quickquotes/images_main/boat-rrz-518-headphone-bluetooth-headset-with-mic-viper-green-over-the-ear-178170515-fwrr1.jpg?impolicy=queryparam&im=Resize=(360,360),aspect=fit" alt="Product 1" width="280" height="200">
+             <h3>Headset-2</h3>
+            <p>₹5000.00</p> <span class="offer">New Collection</span><br>
+            <p><b> All Colours Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('headset-2', 5000.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('headset-2', 5000.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-headset-2"></div>
+        </section>
+        <section class="product" id="product-1">
+             
+            <img src="https://m.media-amazon.com/images/I/51UXizFfL1L._AC_UF1000,1000_QL80_.jpg" alt="Product 1" width="280" height="200">
+             <h3>Projector-1</h3>
+            <p>₹15000.00</p> <span class="offer">New Collection</span><br>
+            <p><b> All Colours Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('projector-1', 15000.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('projector-1', 15000.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-projector-1"></div>
+        </section>
+        <section class="product" id="product-1">
+             
+            <img src="https://m.media-amazon.com/images/I/61dCjpvqnML._AC_UF1000,1000_QL80_.jpg" alt="Product 1" width="280" height="200">
+             <h3>Projector-2</h3>
+            <p>₹20000.00</p> <span class="offer">New Collection</span><br>
+            <p><b> All Colours Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('projector-2', 20000.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('projector-2', 20000.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-projector-2"></div>
+        </section>
+        
+       
+        <section class="product" id="product-1">
+             
+            <img src="https://m.media-amazon.com/images/I/61+r3+JstZL._AC_UF1000,1000_QL80_.jpg" alt="Product 1" width="280" height="200">
+             <h3>Laptop-1</h3>
+            <p>₹30000.00</p> <span class="offer">New Collection</span><br>
+            <p><b> All Colours Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('laptop-1', 30000.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('laptop-1', 30000.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-laptop-1"></div>
+        </section>
+        <section class="product" id="product-1">
+             
+            <img src="https://imageio.forbes.com/specials-images/imageserve/62ee9cc97a458188ff7b70bb/Half-opened-Apple-Brand-MacBook-Pro-laptop-computer-on-a-white-background-/960x0.jpg?height=474&width=711&fit=bounds" alt="Product 1" width="280" height="200">
+             <h3>Laptop-2</h3>
+            <p>₹90000.00</p> <span class="offer">New Collection</span><br>
+            <p><b> All Colours Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('laptop-2', 90000.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('laptop-2', 90000.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-laptop-2"></div>
+        </section>
+        <section class="product" id="product-1">
+             
+            <img src="https://www.zastavki.com/pictures/originals/2019Computers_Gaming_laptop_Dell_G5_15_on_a_white_background_131268_.jpg" alt="Product 1" width="280" height="200">
+             <h3>Laptop-3</h3>
+            <p>₹35000.00</p> <span class="offer">New Collection</span><br>
+            <p><b> All Colours Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('laptop-3', 35000.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('laptop-3', 35000.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-laptop-3"></div>
+        </section>
+        <section class="product" id="product-1">
+             
+            <img src="https://atlas-content-cdn.pixelsquid.com/stock-images/laptop-lXNked7-600.jpg" alt="Product 1" width="280" height="200">
+             <h3>Laptop-4</h3>
+            <p>₹40000.00</p> <span class="offer">New Collection</span><br>
+            <p><b> All Colours Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('laptop-4', 40000.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('laptop-4', 40000.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-laptop-4"></div>
+        </section>
+
+        </main>
+
+    <footer class="footer">
+        <div class="contain">
+            <div class="footer-links">
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">FAQ</a>
+            </div>
+            <div class="footer-copy">
+                &copy; 2024 Your E-commerce Website. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

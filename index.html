@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My E-commerce Website</title>
+
+    <style>
+        
+        /* styles.css */
+        header {
+            background-color:#003366;
+            color: #fff;
+            padding: 10px 0;
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+        }
+        
+        nav {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        
+        .menu-icon {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+            color: #fff;
+        }
+        
+        .nav-items {
+            list-style-type: none;
+            
+            padding: 0;
+            display: flex;
+            gap: 15px;
+            font-size: 20px;
+            flex: 1;
+            justify-content: flex-end;
+            margin-right:20px;
+        }
+        
+        .nav-items li a {
+            color: #fff;
+            text-decoration: none;
+            
+        }
+        
+        .shop-name {
+            font-weight: bold;
+            color: #fff;
+            margin-left:20px;
+            font-size: 25px;
+            transition: color 0.3s ease; /* Smooth transition for hover effect */
+            border-bottom: 3px solid transparent; /* Adds space for underline */
+        }
+        .shop-name:hover {
+            color: #D3D3D3; /* Light Grey for a softer hover effect */
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu-icon {
+                display: block;
+            }
+            
+            .nav-items {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #333;
+                position: absolute;
+                top: 50px;
+                left: 0;
+                padding: 10px 0;
+                overflow-x: hidden; /* Prevents horizontal scroll within the nav items */
+                z-index: 100;
+            }
+        
+            .nav-items.show {
+                display: flex;
+            }
+            
+            .nav-items li {
+                margin: 0;
+                text-align: center;
+                width: 100%;
+                padding: 10px 0;
+            }
+        }
+        
+        .buy-now-form-container,
+.checkout-form-container {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    gap:50px;
+}
+
+.buy-now-form,
+.checkout-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+}
+
+.buy-now-form label,
+.checkout-form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.buy-now-form input,
+.checkout-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.buy-now-form button,
+.checkout-form button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.buy-now-form button:last-child,
+.checkout-form button:last-child {
+    background-color: #ccc;
+    margin-left: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+/* Specific Button Styling */
+.buy-now-btn,
+.add-to-cart-btn {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.buy-now-btn:hover,
+.add-to-cart-btn:hover {
+    background-color: #555;
+}
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color:#E6F7FF;
+            
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 80%; /* Adjust width as needed */
+            max-width: 600px; /* Optional max width */
+            overflow: hidden;
+            border-radius: 10px;
+            background-color:#E6F7FF;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 100%;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            display: block;
+            border-radius: 10px;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            z-index: 10;
+        }
+
+        .carousel-button.prev {
+            left: 10px;
+        }
+
+        .carousel-button.next {
+            right: 10px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color:#E6F7FF;
+        }
+
+        .product-scroller {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .product-scroller h2 {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .scroller-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scroller {
+            display: flex;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            transition: all 0.5s ease;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .product-card {
+            flex: 0 0 auto;
+            width: 200px;
+            margin: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background: #fff;
+        }
+
+        .product-card img {
+            width: 80%;
+            height: 200px;  /* Set a fixed height */
+            object-fit: cover;  /* Ensure the image covers the area while maintaining aspect ratio */
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 10px;
+           
+        }
+
+        .scroller-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        .left {
+            left: 10px;
+        }
+
+        .right {
+            right: 10px;
+        }
+
+        /* Hide the scrollbar */
+        .scroller-container .scroller {
+            overflow-x: hidden;
+        }
+        
+        /* Show the scrollbar on hover */
+        .scroller-container:hover .scroller {
+            overflow-x: auto;
+        }
+
+        .scroller::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .scroller::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+
+        .scroller::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .product-card {
+                width: 150px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .product-card {
+                width: 120px;
+            }
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            overflow-x: hidden; /* Ensure no horizontal scrollbar appears */
+            padding: 10px 0;
+        }
+
+        .footer .contain {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 10px 0;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-copy {
+            margin-top: 10px;
+            font-size: 12px;
+        }
+
+        @media (max-width: 600px) {
+            .footer-links {
+                flex-direction: column;
+            }
+
+            .footer-links a {
+                margin: 5px 0;
+            }
+        }
+        .nav-items a {
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 20px;
+            transition: color 0.3s ease; /* Smooth transition for hover effect */
+            border-bottom: 3px solid transparent; /* Adds space for underline */
+        }
+        
+        /* Navigation Items Hover Effect */
+        .nav-items a:hover {
+            color: #D3D3D3; /* Light Grey for a softer hover effect */
+        }
+        
+        /* Navigation Items Active State */
+        .nav-items a.active {
+            color: #ffff; /* Gold color to highlight the active link */
+            font-weight: bold;
+            border-bottom: 3px solid #ffff; /* Gold underline */
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="shop-name">Shopping Cart</div>
+        <div class="menu-icon" onclick="toggleMenu()">
+            &#9776; <!-- This represents the hamburger menu icon -->
+        </div>
+        <ul class="nav-items">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="men.html" >Men</a></li>
+            <li><a href="women.html">Women</a></li>
+            <li><a href="children.html">Children</a></li>
+            <li><a href="other.html">Electronics</a></li>
+            <li><a href="cart.html">My Cart</a></li>
+            <li><a href="orders.html">My Orders</a></li>
+        </ul>
+    </header>
+    <div class="container">
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-item active">
+                    <img src="https://img.freepik.com/free-vector/big-sale-banner-design-vector-illustration_157027-488.jpg" alt="Carousel Image 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://img.global.news.samsung.com/in/wp-content/uploads/2018/10/Festive-Offers-Newsroom.jpg" alt="Carousel Image 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/special-deal-product-promo-discount-offer-advert-retail-sale-design-template-2c5dc0119ee8493671f3757e4add6589_screen.jpg?ts=1561507293" alt="Carousel Image 3">
+                </div>
+                
+            </div>
+            <button class="carousel-button prev" onclick="prevSlide()">&#10094;</button>
+            <button class="carousel-button next" onclick="nextSlide()">&#10095;</button>
+        </div>
+    </div>
+
+    <div class="product-scroller">
+        <h2>Best of Electronics</h2>
+        <div class="scroller-container">
+            <div class="scroller">
+                <div class="product-card">
+                    <img src="https://dailydeals365.in/wp-content/uploads/2023/09/OnePlus-Nord-Buds-CE-Truly-Wireless-Bluetooth-in-Ear-Earbuds-Mist-Grey-True-Wireless.webp" alt="Electric Cycle">
+                    <p>One Plus Earbuds</p>
+                    <span>₹1500</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product oneplusearbuds', 1500.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product oneplusearbuds', 1500.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-oneplusearbuds"></div>
+                </div>
+                <div class="product-card">
+                    <img src="https://cdn.webshopapp.com/shops/345393/files/436021069/vospo-smartwatch-bellen-via-bluetooth-7-dagen-batt.jpg" alt="Geared Cycles">
+                    <p>Smart Watch</p>
+                    <span>₹2500</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product smartwatch', 2500.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product smartwatch', 2500.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-smartwatch"></div>
+                </div>
+                <div class="product-card">
+                    <img src="https://m.media-amazon.com/images/I/614pmXRPMFL._AC_UF1000,1000_QL80_.jpg" alt="Puzzles & Cubes">
+                    <p>Sony Speakers</p>
+                    <span>₹3000</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product sonyspeaker', 3000.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product sonyspeaker', 3000.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-sonyspeaker"></div>
+                </div>
+                <div class="product-card">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2021/12/LH/AT/UB/20785235/pixma-g3020-500x500.jpg" alt="Best of Action Toys">
+                    <p>Printers</p>
+                    <span>₹8000</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product printer', 8000.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product printer', 8000.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-printer"></div>
+                </div>
+                <div class="product-card">
+                    <img src="https://www.fastrack.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Sites-titan-master-catalog/default/dw524de752/images/Fastrack/Catalog/3072SL01_1.jpg?sw=800&sh=800" alt="Soft Toys">
+                    <p>Fast Track Watch</p>
+                    <span>₹1800</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product fasttrackwatch', 1800.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product fasttrackwatch', 1800.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-fasttrackwatch"></div>
+                </div>
+                <div class="product-card">
+                    <img src="https://zebronics.com/cdn/shop/files/zeb-pixaplay29-pic1.jpg?v=1699353224&width=2048" alt="Remote Control Toys">
+                    <p>Projector</p>
+                    <span>₹12000</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product projector', 12000.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product projector', 12000.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-projector"></div>
+                </div>
+                <div class="product-card">
+                    <img src="https://4.imimg.com/data4/JX/OT/MY-29523429/desktop-monitor.jpg" alt="Remote Control Toys">
+                    <p>Monitor</p>
+                    <span>16000</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product monitor', 16000.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product monitor', 16000.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-monitor"></div>
+                </div>
+                <div class="product-card">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2023/1/KJ/JI/NX/41615788/led-torch-lights-500x500.jpg" alt="Remote Control Toys">
+                    <p>Torch Light</p>
+                    <span>₹800</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product torchlight', 800.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product torchlight', 800.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-torchlight"></div>
+                </div>
+                <div class="product-card">
+                    <img src="https://cyberdeals.lk/wp-content/uploads/2024/03/Asus-RT-AX82U-AX5400-Dual-Band-WiFi-6-Gaming-Router-300x300.jpg" alt="Remote Control Toys">
+                    <p>Router</p>
+                    <span>₹5000</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product router', 5000.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product router', 5000.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-router"></div>
+                </div>
+                <div class="product-card">
+                    <img src="https://rukminim2.flixcart.com/image/850/1000/kxnl6kw0/mouse/5/8/m/wireless-gaming-mouse-rechargeable-500-mah-battery-upto-3200-dpi-original-imaga2da9yxvenhc.jpeg?q=90&crop=false" alt="Remote Control Toys">
+                    <p>Mouse</p>
+                    <span>₹3500</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product mouse', 3500.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product mouse', 3500.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-mouse"></div>
+                </div>
+                <div class="product-card">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2020/8/GA/BS/RT/52752046/cctv-camera.jpg" alt="Remote Control Toys">
+                    <p>CCTV Camera</p>
+                    <span>₹6000</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product cctvcamera', 6000.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product cctvcamera', 6000.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-cctvcamera"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-scroller">
+        <h2>Bike parts & accessories</h2>
+        <div class="scroller-container">
+            <div class="scroller">
+                <div class="product-card">
+                    <img src="https://gearnride.in/wp-content/uploads/2023/01/axor-helmet-apex-solid-black-dull-8.jpg" alt="Electric Cycle">
+                    <p>Helmet</p>
+                    <span>₹8000</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product helmet', 8000.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product helmet', 8000.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-helmet"></div>
+                </div>
+                <div class="product-card">
+                    <img src="https://www.lazyassbikers.com/cdn/shop/products/4063-000_Asphalt_01_1024x1024.jpg?v=1613221016" alt="Geared Cycles">
+                    <p>Gloves</p>
+                    <span>₹5000</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product gloves', 5000.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product gloves', 5000.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-gloves"></div>
+                </div>
+                <div class="product-card">
+                    <img src="https://orazosafety.com/wp-content/uploads/2016/09/Black_IBIS_WR_03.jpg" alt="Puzzles & Cubes">
+                    <p>Boots</p>
+                    <span>₹8000</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product boots', 8000.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product boots', 8000.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-boots"></div>
+                </div>
+                <div class="product-card">
+                    <img src="https://www.jopa.nl/userdata/artikelen/jopa-mx-boots-forza-black-grey-44-44506003-en-G.jpg" alt="Best of Action Toys">
+                    <p>Leather Boots</p>
+                    <span>₹15000</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product leatherboots', 15000.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product leatherboots', 15000.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-leatherboots"></div>
+                </div>
+                <div class="product-card">
+                    <img src="https://gthouse.shop/wp-content/uploads/2022/08/Shima-Mesh-Pro-Riding-Jacket-Red.webp" alt="Soft Toys">
+                    <p>Jacket</p>
+                    <span>₹12000</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product jacket', 12000.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product jacket', 12000.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-jacket"></div>
+                </div>
+                <div class="product-card">
+                    <img src="https://www.store4riders.com/pub/media/catalog/product/cache/72998e07b4001f860232736e27851ad9/m/o/motocross-riding-pant-_-neon-_1_.jpg" alt="Remote Control Toys">
+                    <p>Riding Pant</p>
+                    <span>₹15000</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product ridingpant', 15000.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product ridingpant', 15000.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-ridingpant"></div>
+                </div>
+                <div class="product-card">
+                    <img src="https://cdn.anscommerce.com/image/tr:e-sharpen-01,h-872,w-1166,cm-pad_resize/data/gps/24-July-2023/FacM-0.jpg" alt="Remote Control Toys">
+                    <p>Face Mask</p>
+                    <span>₹1500</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product facemask', 1500.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product facemask', 1500.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-facemask"></div>
+                </div>
+                <div class="product-card">
+                    <img src="https://rukminim2.flixcart.com/image/850/1000/k3670cw0/bike-headlight-visor/c/g/k/002-parsh-original-imafk8afcgyunb9g.jpeg?q=90&crop=false" alt="Remote Control Toys">
+                    <p>Bike Wind Shield</p>
+                    <span>₹3000</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product bikewindshield', 3000.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product bikewindshield', 3000.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-bikewindshield"></div>
+                </div>
+                <div class="product-card">
+                    <img src="https://rukminim1.flixcart.com/image/300/300/xif0q/bike-storage-stand/j/l/g/5-0-500-royal-enfield-hunter-carrier-plate-bike-worlds-5-original-imagk3gm2armrysh.jpeg" alt="Remote Control Toys">
+                    <p>Bike Back Carrier</p>
+                    <span>₹2800</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product bikebackcarrier', 2800.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product bikebackcarrier', 2800.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-bikebackcarrier"></div>
+                </div>
+                <div class="product-card">
+                    <img src="https://i.ebayimg.com/images/g/6bIAAOSwe6hlALFM/s-l1200.webp" alt="Remote Control Toys">
+                    <p>Bike Stand </p>
+                    <span>₹3200</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product bikestand', 3200.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product bikestand', 3200.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-bikestand"></div>
+                </div>
+                <div class="product-card">
+                    <img src="https://m.media-amazon.com/images/I/81fKSM+-MhL.jpg" alt="Remote Control Toys">
+                    <p>Front Bag</p>
+                    <span>₹2000</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product frontbag', 2000.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product frontbag', 2000.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-frontbag"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-scroller">
+        <h2>Home functurines and appliances</h2>
+        <div class="scroller-container">
+            <div class="scroller">
+                <div class="product-card">
+                    <img src="https://static.wixstatic.com/media/fd9026_2278803b508a4a38b4b8dc730540d246~mv2.jpg/v1/fill/w_1000,h_1000,al_c,q_85/fd9026_2278803b508a4a38b4b8dc730540d246~mv2.jpg" alt="Electric Cycle">
+                    <p>Micro Wave</p>
+                    <span>₹15000</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product microwave', 15000.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product microwave', 15000.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-microwave"></div>
+                </div>
+                <div class="product-card">
+                    <img src="https://www.kigalidiscount.com/cdn/shop/products/kino_800x.png?v=1631275693" alt="Geared Cycles">
+                    <p>Led TV</p>
+                    <span>₹40000</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product ledtv', 40000.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product ledtv', 40000.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-ledtv"></div>
+                </div>
+                <div class="product-card">
+                    <img src="https://www.lg.com/content/dam/channel/wcms/in/images/refrigerators/gr-x31fmqhl_amcqebn_eail_in_c/GR-X31FMQHL-Refrigerators-Food-Front-Light-On-450.jpg" alt="Puzzles & Cubes">
+                    <p>Refrigerator</p>
+                    <span>₹65000</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product refrigerator', 65000.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product refrigerator', 65000.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-refrigerator"></div>
+                </div>
+                <div class="product-card">
+                    <img src="https://5.imimg.com/data5/ER/ID/MY-14688478/coffee-table-250x250.jpg" alt="Best of Action Toys">
+                    <p>Table</p>
+                    <span>₹8000</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product table', 8000.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product table', 8000.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-table"></div>
+                </div>
+                <div class="product-card">
+                    <img src="https://m.media-amazon.com/images/I/711DxvZTb7L._AC_UF894,1000_QL80_.jpg" alt="Soft Toys">
+                    <p>Dining Table</p>
+                    <span>₹55000</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product diningtable', 55000.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product diningtable', 55000.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-diningtable"></div>
+                </div>
+                <div class="product-card">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2022/12/SM/BQ/ND/160638464/ultra-mixie.jpg" alt="Remote Control Toys">
+                    <p>Mixie</p>
+                    <span>₹8000</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product mixie', 8000.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product mixie', 8000.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-mixie"></div>
+                </div>
+                <div class="product-card">
+                    <img src="https://i5.walmartimages.com/asr/e9283c40-6b9b-4e23-9ed5-8b34aee3058c.96d459665badcaa1cfac1b5b8e2b3a42.jpeg" alt="Remote Control Toys">
+                    <p>Table Fan</p>
+                    <span>₹7000</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product tablefan', 7000.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product tablefan', 7000.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-tablefan"></div>
+                </div>
+                <div class="product-card">
+                    <img src="https://plastindia.org/wp-content/uploads/2019/11/wooden_chair.jpg" alt="Remote Control Toys">
+                    <p>Wooden Chair</p>
+                    <span>₹3500</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product woodenchair', 3500.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product woodenchair', 3500.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-woodenchair"></div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images-cdn.ubuy.co.in/633b01dfc93453769f15744f-office-chair-computer-high-back.jpg" alt="Remote Control Toys">
+                    <p>Chair</p>
+                    <span>₹8000</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product chair', 8000.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product chair', 8000.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-chair"></div>
+                </div>
+                <div class="product-card">
+                    <img src="https://www.luckyfurniture.in/wp-content/uploads/2018/07/computer-table-04-650x750.jpg" alt="Remote Control Toys">
+                    <p>Computer Table</p>
+                    <span>₹10000</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product computertable', 10000.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product computertable', 10000.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-computertable"></div>
+                </div>
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpfjzXEnYqZivWPP6ILd5_DSVrue0MR8VQzg&usqp=CAU" alt="Remote Control Toys">
+                    <p>Mini Computer Table</p>
+                    <span>₹7000</span><Br/>
+                    <button class="buy-now-btn" onclick="displayBuyNowForm('Product minicomputertable', 7000.00)">Buy Now</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Product minicomputertable', 7000.00, 'product1.jpg')">Add to Cart</button>
+                    <div class="buy-now-form-container" id="buy-now-form-product-minicomputertable"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="contain">
+            <div class="footer-links">
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">FAQ</a>
+            </div>
+            <div class="footer-copy">
+                &copy; 2024 Your E-commerce Website. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        // scripts.js
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.carousel-item');
+            if (index >= slides.length) {
+                currentSlide = 0;
+            } else if (index < 0) {
+                currentSlide = slides.length - 1;
+            } else {
+                currentSlide = index;
+            }
+            const offset = -currentSlide * 100;
+            document.querySelector('.carousel').style.transform = `translateX(${offset}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        setInterval(nextSlide, 3000); // Automatically switch slides every 3 seconds
+
+        // Optional: pause the carousel when hovering over it
+        const carouselContainer = document.querySelector('.carousel-container');
+        let autoSlide = setInterval(nextSlide, 3000);
+        carouselContainer.addEventListener('mouseenter', () => clearInterval(autoSlide));
+        carouselContainer.addEventListener('mouseleave', () => autoSlide = setInterval(nextSlide, 3000));
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,441 @@
+/* General reset and body styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevents horizontal scroll */
+    background-color:#E6F7FF;
+}
+
+/* Container styling */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+/* Header styling */
+header {
+    background-color:#003366;
+    color: #fff;
+    padding: 10px 0;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Navigation styling */
+nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #fff;
+}
+.nav-items a {
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+    border-bottom: 3px solid transparent; /* Adds space for underline */
+}
+
+/* Navigation Items Hover Effect */
+.nav-items a:hover {
+    color: #D3D3D3; /* Light Grey for a softer hover effect */
+}
+
+/* Navigation Items Active State */
+.nav-items a.active {
+    color: #ffff; /* Gold color to highlight the active link */
+    font-weight: bold;
+    border-bottom: 3px solid #ffff; /* Gold underline */
+}
+
+.nav-items {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+    font-size: 20px;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.nav-items li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.shop-name {
+    font-weight: bold;
+    color: #fff;
+    margin-left:0px;
+    font-size: 25px;
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+    border-bottom: 3px solid transparent; /* Adds space for underline */
+}
+.shop-name:hover {
+    color: #D3D3D3; /* Light Grey for a softer hover effect */
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+    
+    .nav-items {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #333;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        padding: 10px 0;
+        overflow-x: hidden; /* Prevents horizontal scroll within the nav items */
+    }
+
+    .nav-items.show {
+        display: flex;
+    }
+    
+    .nav-items li {
+        margin: 0;
+        text-align: center;
+        width: 100%;
+        padding: 10px 0;
+    }
+}
+
+/* Main content styling */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1500px; /* Adjust the max-width to fit more items in a row */
+    margin: 20px;
+    padding: 20px;
+}
+
+.product {
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 300px;
+}
+
+.product img {
+    margin-bottom: 10px;
+    max-width: 100%;
+    height: 300px;
+}
+
+.offer {
+    font-weight: bold;
+    color: green;
+}
+
+/* Cart and order container styling */
+.container1 {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+}
+
+.headline {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.cart-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    padding: 10px;
+
+}
+
+.total-and-checkout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+.cart-item img {
+    max-width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+.total-price {
+    text-align: right;
+    padding: 10px;
+    font-size: 1.2em;
+}
+
+#checkout-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+/* Order list and item styling */
+.orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    list-style-type: none;
+}
+
+.order {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Form container styling */
+.buy-now-form-container,
+.checkout-form-container {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    gap:50px;
+}
+
+.buy-now-form,
+.checkout-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+}
+
+.buy-now-form label,
+.checkout-form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.buy-now-form input,
+.checkout-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.buy-now-form button,
+.checkout-form button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.buy-now-form button:last-child,
+.checkout-form button:last-child {
+    background-color: #ccc;
+    margin-left: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Footer styling */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    overflow-x: hidden; /* Ensure no horizontal scrollbar appears */
+    padding: 10px 0;
+}
+
+.footer .contain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-copy {
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+@media (max-width: 600px) {
+    .footer-links {
+        flex-direction: column;
+    }
+
+    .footer-links a {
+        margin: 5px 0;
+    }
+}
+
+/* List styling */
+ul {
+    list-style-type: none; /* Remove bullets from the list */
+    padding: 0; /* Remove default padding */
+}
+
+ul li {
+    margin-left: 0; /* Remove default margin */
+}
+
+/* Button styling */
+/* Common Button Styling */
+button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+/* Specific Button Styling */
+.buy-now-btn,
+.add-to-cart-btn {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.buy-now-btn:hover,
+.add-to-cart-btn:hover {
+    background-color: #555;
+}
+.cart-item  button {
+    background-color: #ff0000; /* Red for remove buttons */
+    color: #fff;
+    border-radius: 5px;
+    margin:10px;
+}
+.order button{
+    background-color: #ff0000; /* Red for remove buttons */
+    color: #fff;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.confirm-purchase, .confirm-checkout {
+    background-color: #333; /* Consistent styling for confirm buttons */
+    color: #fff;
+    border-radius: 5px;
+}
+
+.cancel-purchase, .cancel-checkout, .cancel-order {
+    background-color: #ff0000; /* Red for cancel buttons */
+    color: #fff;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.confirm-purchase:hover, .confirm-checkout:hover, .cancel-purchase:hover, .cancel-checkout:hover, .cancel-order:hover, .remove-from-cart:hover {
+    opacity: 0.8; /* Slight transparency on hover */
+}
+
+.remove-btn{
+display: inline-block;
+padding: 10px;
+background-color: #f00;
+color: #fff;
+border: none;
+margin-left: 10px;
+}

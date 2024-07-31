@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My E-commerce Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="shop-name">Shopping Cart</div>
+            <div class="menu-icon" onclick="toggleMenu()">
+                &#9776; <!-- This represents the hamburger menu icon -->
+            </div>
+            <ul class="nav-items">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="men.html" class="active">Men</a></li>
+                <li><a href="women.html">Women</a></li>
+                <li><a href="children.html">Children</a></li>
+                <li><a href="other.html">Electronics</a></li>
+                <li><a href="cart.html">My Cart</a></li>
+                <li><a href="orders.html">My Orders</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="product" id="product-1">
+            <img src="https://ttbazaar.com/cdn/shop/products/TS-078_PO3_WSB.jpg?v=1623062160" alt="Product 1" width="280" height="200">
+            <h3>Round Neck T-Shirt </h3>
+             <p><s>₹750.00</s>&nbsp;₹350.00</p><span class="offer"><b>80%OFF</b></span><br>
+             <p><b>Sizes</b>&nbsp;S, M, L, XL, XLL</p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('roundneckt-shirt', 350.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('roundneckt-shirt', 350.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-roundneckt-shirt"></div>
+        </section>
+
+        <section class="product" id="product-2">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230829/SNTx/64ee20cfddf77915198877ca/-473Wx593H-466433275-cream-MODEL.jpg" alt="Product 2" width="280" height="200">
+            <h3>Printed T-Shirt</h3>
+            <p>₹400.00</p><span class="offer">New Collection</span><br>
+            <p><b>Sizes</b>&nbsp;S, M, L, XL, XLL</p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('printedt-shirt', 400.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('printedt-shirt', 400.00, 'product2.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-printedt-shirt"></div>
+        </section>
+
+        <section class="product" id="product-3">
+            <img src="https://contents.mediadecathlon.com/p2301349/83b14838db03f875377e5f2efeb3e700/p2301349.jpg?format=auto&quality=70&f=650x0" alt="Product 3" width="280" height="200">
+            <h3>Full Sleeve T-Shirt </h3>
+            <p>₹450.00</p><span class="offer">New Collection</span><br>
+            <p><b>Sizes</b>&nbsp;S, M, L, XL, XLL</p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('fullsleevet-shirt', 450.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('fullsleevet-shirt', 450.00, 'product3.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-fullsleevet-shirt"></div>
+        </section>
+        <section class="product" id="product-1">
+            <img src="https://m.media-amazon.com/images/I/61Dl04uTq6S._AC_UY1000_.jpg" alt="Product 1" width="280" height="200">
+            <h2>Collar T-Shirt</h2>
+            <p>₹500.00</p> <span class="offer">New Collection</span><br>
+            <p><b>Sizes</b>&nbsp;S, M, L, XL, XLL</p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('collart-shirt', 500.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('collart-shirt', 500.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-collart-shirt"></div>
+        </section>
+        <section class="product" id="product-1">
+            <img src="https://images.meesho.com/images/products/351731362/zgwpl_512.webp" alt="Product 1" width="280" height="200">
+            <h3>Formal Shirt Red</h3>
+            <p>₹800.00</p> <span class="offer">New Collection</span><br>
+            <p><b>Sizes</b>&nbsp;S, M, L, XL, XLL</p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('formalshirtred', 800.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('formalshirtred', 800.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-formalshirtred"></div>
+        </section>
+        <section class="product" id="product-1">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20231012/KbmK/65281b64afa4cf41f53f3e50/-473Wx593H-469514967-darkblue-MODEL.jpg" alt="Product 1" width="280" height="200">
+            <h3>Formal Shirt Blue</h3>
+            <p><s>₹750.00</s>&nbsp;₹500.00</p> <span class="offer"><b>20%OFF</b></span><br>
+            <p><b>Sizes</b>&nbsp;S, M, L, XL, XLL</p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('formalshirtblue', 500.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('formalshirtblue', 500.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-formalshirtblue"></div>
+        </section>
+        <section class="product" id="product-1">
+            <img src="https://thefoomer.in/cdn/shop/products/jpeg-optimizer_PATP5206.jpg?v=1680163649" alt="Product 1" width="280" height="200">
+            <h3>Formal Shirt Grey</h3>
+            <p>₹650.00</p> <span class="offer">New Collection</span><br>
+            <p><b>Sizes</b>&nbsp;S, M, L, XL, XLL</p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('formalshirtgrey', 650.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('formalshirtgrey', 650.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-formalshirtgrey"></div>
+        </section>
+        <section class="product" id="product-1">
+            <img src="https://rajubhaihargovindas.com/12277-large_default/japs-black-cotton-formal-shirt.jpg" alt="Product 1" width="280" height="200">
+            <h3>Formal Shirt Black</h3>
+            <p>₹750.00</p> <span class="offer">New Collection</span><br>
+            <p><b>Sizes</b>&nbsp;S, M, L, XL, XLL</p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('formalshirtblack', 750.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('formalshirtblack', 750.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-formalshirtblack"></div>
+        </section>
+        <section class="product" id="product-1">
+            <img src="https://5.imimg.com/data5/JA/KG/ZM/SELLER-100243100/mens-formal-trouser.jpg" alt="Product 1" width="280" height="200">
+            <h3>Formal Pant Grey</h3>
+            <p>₹650.00</p> <span class="offer">New Collection</span><br>
+            <p><b>Sizes</b>&nbsp;28, 30, 32, 34, 36</p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('formalpantgrey', 650.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('formalpantgrey', 50.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-formalpantgrey"></div>
+        </section>
+        <section class="product" id="product-1">
+            <img src="https://images.meesho.com/images/products/220865108/ek9lw_512.webp" alt="Product 1" width="280" height="200">
+            <h3>Formal Pant Blue</h3>
+            <p><s>₹800.00</s>&nbsp;₹500.00</p> <span class="offer"><b>30%OFF</b></span><br>
+            <p><b>Sizes</b>&nbsp;28, 30, 32, 34, 36</p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('formalpantblue', 500.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('formalpantblue', 500.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-formalpantblue"></div>
+        </section>
+        <section class="product" id="product-1">
+            <img src="https://cdn.shopaccino.com/qarot/products/84a6354-879665_m.jpg?v=516" alt="Product 1" width="280" height="200">
+            <h3>Formal Pant brown</h3>
+            <p>₹700</p> <span class="offer">New Collection</span><br>
+            <p><b>Sizes</b>&nbsp;28, 30, 32, 34, 36</p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('formalpantbrown', 700.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('formalpantbrown', 700.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-formalpantbrown"></div>
+        </section>
+        <section class="product" id="product-1">
+            <img src="https://cdn02.nnnow.com/web-images/large/styles/52RJY5IF7LH/1613474359873/3.jpg" alt="Product 1" width="280" height="200">
+            <h3>Formal Pant light brown</h3>
+            <p><s>$750.00</s>&nbsp;₹450.00</p> <span class="offer"><b>25%OFF</b></span><br>
+            <p><b>Sizes</b>&nbsp;28, 30, 32, 34, 36</p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('formalpantlightbrown', 450.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('formalpantlightbrown', 450.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-formalpantlightbrown"></div>
+        </section>
+        <section class="product" id="product-1">
+            <img src="https://sethukrishna.com/cdn/shop/products/Mynthra_06_4d483b1d-ca9d-4ea1-ab1c-454cba4fe239.jpg?v=1691489064&width=900" alt="Product 1" width="280" height="200">
+            <h3>COMBO-1</h3>
+            <p><s>₹2000.00</s>&nbsp;₹1800.00</p> <span class="offer"><b>20%OFF</b></span><br>
+            <p><b>Sizes</b>&nbsp;S, M, L, XL, XLL</p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('combo-1', 1800.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('combo-1', 1800.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-combo-1"></div>
+        </section>
+        <section class="product" id="product-1">
+            <img src="https://sethukrishna.com/cdn/shop/products/1_20e690ee-7d6a-44ee-a666-65fd6bb26cd2.jpg?v=1665833118&width=900" alt="Product 1" width="280" height="200">
+            <h3>COMBO-2</h3>
+            <p><s>₹1800.00</s>&nbsp;₹1500.00</p> <span class="offer"><b>30%OFF</b></span><br>
+            <p><b>Sizes</b>&nbsp;S, M, L, XL, XLL</p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('combo-2', 1500.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('combo-2', 1500.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-combo-2"></div>
+        </section>
+        <section class="product" id="product-1">
+            <img src="https://biple.myshopify.com/cdn/shop/products/FOTOZONE1708_116df986-a616-4a54-8050-3c13d6574dc2.jpg?v=1625822696&width=1445" alt="Product 1" width="280" height="200">
+            <h3>COMBO-3</h3>
+            <p><s>₹1600.00</s>&nbsp;₹1350.00</p> <span class="offer"><b>20%OFF</b></span><br>
+            <p><b>Sizes</b>&nbsp;S, M, L, XL, XLL</p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('combo-3', 1350.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('combo-3', 1350.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-combo-3"></div>
+        </section>
+        <section class="product" id="product-1">
+            <img src="https://rukminim2.flixcart.com/image/850/1000/xif0q/ethnic-set/s/v/h/m-trendyadjcc2fs-ramraj-cotton-original-imagnzcpc7zukzgh.jpeg?q=20&crop=false" alt="Product 1" width="280" height="200">
+            <h3>COMBO-4</h3>
+            <p><s>₹1350</s>&nbsp;₹1000.00</p> <span class="offer"><b>25%OFF</b></span><br>
+            <p><b>Sizes</b>&nbsp;S, M, L, XL, XLL</p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('Product 1', 50.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('Product 1', 50.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-product-1"></div>
+        </section>
+ 
+        <section class="product" id="product-1">
+            <img src="https://5.imimg.com/data5/SELLER/Default/2022/9/JP/SJ/ED/38630640/casual-shoes-500x500.jpg" alt="Product 1" width="280" height="200">
+           <h3>White Shoes</h3>
+            <p>₹2000.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Size Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('whiteshoes', 2000.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('whiteshoes', 2000.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-whiteshoes"></div>
+        </section>
+        <section class="product" id="product-1">
+            <img src="https://5.imimg.com/data5/VH/HO/KA/SELLER-84868583/men-sneakers-shoes-500x500.jpeg" alt="Product 1" width="280" height="200">
+           <h3>Blue Shoes</h3>
+            <p>₹1500.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Size Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('blueshoes', 1500.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('blueshoes', 1500.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-blueshoes"></div>
+        </section>
+        <section class="product" id="product-1">
+             
+            <img src="https://rukminim1.flixcart.com/image/850/1000/kpft18w0/shoe/s/q/3/7-bbmg8187-7-bacca-bucci-white-original-imag3z9gk7ff4ere.jpeg?q=20" alt="Product 1" width="280" height="200">
+           <h3>Red Shoes</h3>
+            <p>₹2500.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Size Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('redshoes', 2500.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('redshoes', 2500.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-redshoes"></div>
+        </section>
+        <section class="product" id="product-1">
+             
+            <img src="https://m.media-amazon.com/images/I/41LMutpDINL.jpg" alt="Product 1" width="280" height="200">
+           <h3>Grey Shoes</h3>
+            <p>₹2200.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Size Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('greyshoes', 2200.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('greyshoes', 2200.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-greyshoes"></div>
+        </section>
+        
+
+        </main>
+        
+
+        <footer class="footer">
+            <div class="contain">
+                <div class="footer-links">
+                    <a href="#">About Us</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">FAQ</a>
+                </div>
+                <div class="footer-copy">
+                    &copy; 2024 Your E-commerce Website. All rights reserved.
+                </div>
+            </div>
+        </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

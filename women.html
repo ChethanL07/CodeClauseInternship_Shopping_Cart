@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My E-commerce Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="shop-name">Shopping Cart</div>
+            <div class="menu-icon" onclick="toggleMenu()">
+                &#9776; <!-- This represents the hamburger menu icon -->
+            </div>
+            <ul class="nav-items">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="men.html">Men</a></li>
+                <li><a href="women.html"class="active">Women</a></li>
+                <li><a href="children.html">Children</a></li>
+                <li><a href="other.html">Electronics</a></li>
+                <li><a href="cart.html">My Cart</a></li>
+                <li><a href="orders.html">My Orders</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+       <section class="product" id="product-1">
+            
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240409/qUIe/6614991c05ac7d77bbfe951a/-473Wx593H-467238348-white-MODEL.jpg" alt="Product 1" width="280" height="200">
+            <h3>White Lehenga</h3>
+            <p>₹25000.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Size Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('whitelehenga', 25000.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('whitelehenga', 25000.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-whitelehenga"></div>
+        </section>
+        <section class="product" id="product-1">
+            
+            <img src="https://i.etsystatic.com/17457268/r/il/748f04/3507140256/il_570xN.3507140256_faza.jpg" alt="Product 1" width="280" height="200">
+             <h3>Blue Lehenga</h3>
+            <p>₹28000.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Size Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('bluelehenga', 28000.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('bluelehenga', 28000.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-bluelehenga"></div>
+        </section>
+        <section class="product" id="product-1">
+            
+            <img src="https://assets2.andaazfashion.com/media/catalog/product/cache/1/image/800x1200/a12781a7f2ccb3d663f7fd01e1bd2e4e/e/m/embroidered-peacock-blue-banglori-silk-wedding-lehenga-choli-llcv01561-1.jpg" alt="Product 1" width="280" height="200">
+             <h3>Pink Lehenga</h3>
+            <p>₹30000.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Size Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('pinklehenga', 30000.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('pinklehenga', 30000.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-pinklehenga"></div>
+        </section>
+        <section class="product" id="product-1">
+            
+            <img src="https://i.pinimg.com/736x/28/1f/4b/281f4b638e0a002a34bd81c0fd95fbde.jpg" alt="Product 1" width="280" height="200">
+             <h3>Red Lehenga</h3>
+            <p>₹35000.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Size Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('redlehenga', 35000.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('redlehenga', 35000.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-redlehenga"></div>
+        </section>
+        <section class="product" id="product-1">
+            
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230807/sLNA/64d0c70deebac147fcac8686/-473Wx593H-466413388-navy-MODEL.jpg" alt="Product 1" width="280" height="200">
+             <h3>Blue Saree</h3>
+            <p>₹20000.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Colours Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('bluesaree', 20000.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('bluesaree', 20000.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-bluesaree"></div>
+        </section>
+        <section class="product" id="product-1">
+            
+            <img src="https://assets0.mirraw.com/images/11666236/SAI_8327_zoom.jpg?1688709686" alt="Product 1" width="280" height="200">
+             <h3>Green Saree</h3>
+            <p>₹25000.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Colours Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('greensaree', 25000.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('greensaree', 25000.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-greensaree"></div>
+        </section>
+        <section class="product" id="product-1">
+            
+            <img src="https://assets0.mirraw.com/images/10946721/image_zoom.jpeg?1669117224" alt="Product 1" width="280" height="200">
+             <h3>Red Saree</h3>
+            <p>₹30000.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Colours Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('redsaree', 30000.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('redsaree', 30000.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-redsaree"></div>
+        </section>
+        <section class="product" id="product-1">
+            
+            <img src="https://assets0.mirraw.com/images/7749810/image_zoom.jpeg?1579365247" alt="Product 1" width="280" height="200">
+             <h3>Little Green Saree</h3>
+            <p>₹28000.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Colours Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('littlegreensaree', 28000.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('littlegreensaree', 28000.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-littlegreensaree"></div>
+        </section>
+        
+        <section class="product" id="product-1">
+            
+            <img src="https://www.jiomart.com/images/product/original/rv9pzfj29n/mansiyaorange-traditional-heavy-golden-choker-jewelry-jualry-necklace-jewellery-julry-set-for-women-product-images-rv9pzfj29n-0-202209121425.jpg?im=Resize=(500,630)" alt="Product 1" width="280" height="200">
+             <h3>Jewellery-1</h3>
+            <p>₹3000.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Designs Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('jewellery-1', 3000.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('jewellery-1', 3000.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-jewellery-1"></div>
+        </section>
+        <section class="product" id="product-1">
+            
+            <img src="https://5.imimg.com/data5/SELLER/Default/2021/9/FV/JR/JM/769117/gold-plated-choker-set-500x500.jpg" alt="Product 1" width="280" height="200">
+             <h3>Jewellery-2</h3>
+            <p>₹3500.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Designs Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('jewellery-2', 3500.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('jewellery-2', 3500.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-jewellery-2"></div>
+        </section>
+        <section class="product" id="product-1">
+            
+            <img src="https://5.imimg.com/data5/YM/SV/MY-11408009/short-chain-necklace-set.jpg" alt="Product 1" width="280" height="200">
+             <h3>Jewellery-3</h3>
+            <p>₹2000.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Designs Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('jewellery-3', 2000.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('jewellery-3', 2000.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-jewellery-3"></div>
+        </section>
+        <section class="product" id="product-1">
+            
+            <img src="https://5.imimg.com/data5/RC/UO/MM/SELLER-89882845/designer-gold-necklace-set-500x500.jpg" alt="Product 1" width="280" height="200">
+             <h3>Jewellery-4</h3>
+            <p>₹1500.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Designs Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('jewellery-4', 1500.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('jewellery-1', 1500.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-jewellery-1"></div>
+        </section>
+        
+        <section class="product" id="product-1">
+            
+            <img src="https://m.media-amazon.com/images/I/81RyrDDaJNL._AC_UY1000_.jpg" alt="Product 1" width="280" height="200">
+             <h3>Blue Slipper</h3>
+            <p>₹250.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Size Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('blueslipper', 250.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('blueslipper', 250.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-blueslipper"></div>
+        </section>
+        <section class="product" id="product-1">
+            
+            <img src="https://m.media-amazon.com/images/I/614zj71FsXL._AC_UY1000_.jpg" alt="Product 1" width="280" height="200">
+             <h3>Pink Shoes</h3>
+            <p>₹300.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Size Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('pinkshoes', 300.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('pinkshoes', 300.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-pinkshoes"></div>
+        </section>
+        <section class="product" id="product-1">
+            
+            <img src="https://zouk.co.in/cdn/shop/products/MysoreGarden_2.jpg?v=1675332901&width=2048" alt="Product 1" width="280" height="200">
+             <h3>Brown Shoes</h3>
+            <p>₹400.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Size Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('brownshoes', 400.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('brownshoes', 400.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-brownshoes"></div>
+        </section>
+        <section class="product" id="product-1">
+            
+            <img src="https://rukminim2.flixcart.com/image/850/1000/xif0q/shoe/k/z/d/8-sn-8602-pink-8-shoenstring-pink-original-imagnx8yryuqvmh6.jpeg?q=90&crop=false" alt="Product 1" width="280" height="200">
+            <h3>White Shoes</h3>
+            <p>₹500.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Size Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('whiteshoes', 500.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('whiteshoes', 500.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-whiteshoes"></div>
+        </section>
+
+        </main>
+
+    <footer class="footer">
+        <div class="contain">
+            <div class="footer-links">
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">FAQ</a>
+            </div>
+            <div class="footer-copy">
+                &copy; 2024 Your E-commerce Website. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

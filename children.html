@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My E-commerce Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="shop-name">Shopping Cart</div>
+            <div class="menu-icon" onclick="toggleMenu()">
+                &#9776; <!-- This represents the hamburger menu icon -->
+            </div>
+            <ul class="nav-items">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="men.html">Men</a></li>
+                <li><a href="women.html">Women</a></li>
+                <li><a href="children.html" class="active">Children</a></li>
+                <li><a href="other.html">Electronics</a></li>
+                <li><a href="cart.html">My Cart</a></li>
+                <li><a href="orders.html">My Orders</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="product" id="product-1">
+             
+            <img src="https://5.imimg.com/data5/SELLER/Default/2022/5/KB/DU/MR/152198246/small-kids-clothes.jpg" alt="Product 1" width="280" height="200">
+            <h3>Boy Combo-1</h3>
+            <p>₹800.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Size 5years-10years</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('boycombo-1', 800.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('boycombo-1', 800.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-boycombo-1"></div>
+        </section>
+
+        <section class="product" id="product-2">
+            <!-- <h2>Product 2</h2> -->
+            <img src="https://m.media-amazon.com/images/I/81XgTDbeZOL._SL1500_.jpg" alt="Product 2" width="280" height="200">
+            <h3>Boy Combo-2</h3>
+            <p>₹600.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Size 4years-8years</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('boycombo-2', 600.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('boycombo-2', 600.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-boycombo-2"></div>
+        </section>
+
+        
+        <section class="product" id="product-1">
+             
+            <img src="https://img4.dhresource.com/0x0/f3/albu/km/h/03/511b4c35-78ac-4513-88fe-912ab612060e.jpg" alt="Product 1" width="280" height="200">
+             <h3>White Dress</h3>
+            <p>₹1000.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Size Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('whitedress', 1000.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('whitedress', 1000.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-whitedress"></div>
+        </section>
+        <section class="product" id="product-1">
+             
+            <img src="https://image.made-in-china.com/202f0j00BqlGbZKLAckU/an-Elegant-Girl-Princess-Dress-of-Piano-Performance.webp" alt="Product 1" width="280" height="200">
+             <h3>Brown Dress</h3>
+            <p>₹1200.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Size Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('browndress', 1000.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('browndress', 1000.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-browndress"></div>
+        </section>
+        
+        <section class="product" id="product-1">
+             
+            <img src="https://i.pinimg.com/736x/36/a9/e4/36a9e4b6ea269dee6dbace95119eaec0.jpg" alt="Product 1" width="280" height="200">
+             <h3>Children Combo-1</h3>
+            <p>₹500.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Size Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('childrencombo-1', 500.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('childrencombo-1', 500.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-childrencombo-1"></div>
+        </section>
+        <section class="product" id="product-1">
+             
+            <img src="https://www.celebritystylefashion.com.au/cdn/shop/products/product-image-78200389.jpg?v=1596123065&width=750"alt="Product 1" width="280" height="200">
+             <h3>Children Combo-2</h3>
+            <p>₹400.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Size Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('childrencombo-2', 400.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('childrencombo-2', 400.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-childrencombo-2"></div>
+        </section>
+        
+        <section class="product" id="product-1">
+             
+            <img src="https://staranddaisy.in/wp-content/uploads/2024/02/JH-515-main-1.jpg" alt="Product 1" width="280" height="200">
+             <h3>Pink Slipper</h3>
+            <p>₹200.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Size Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('pinkslipper', 200.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('pinkslipper', 200.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-pinkslipper"></div>
+        </section>
+        <section class="product" id="product-1">
+             
+            <img src="https://dxkvlfvncvqr8.cloudfront.net/media/product-image/FL-KIDS-2012-NVPK-1.jpg" alt="Product 1" width="280" height="200">
+             <h3>Crocks</h3>
+            <p>₹300.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Size Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('crocks', 300.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('crocks', 300.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-crocks"></div>
+        </section>
+        
+        <section class="product" id="product-1">
+             
+            <img src="https://baybee.co.in/cdn/shop/products/61T9DiAlSkL_500x.jpg?v=1682056665" alt="Product 1" width="280" height="200">
+             <h3>Car Toy</h3>
+            <p>₹2000.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Colours Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('cartoy', 2000.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('cartoy', 2000.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-cartoy"></div>
+        </section>
+        <section class="product" id="product-1">
+             
+            <img src="https://image.made-in-china.com/2f0j00zTkqBlIGvrpe/Hot-Sale-Kids-Electric-Cars-2-Seater-Children-Toys-Car-Kids-Electric-Car-Big-Size-Kids-Battery-Car.webp" alt="Product 1" width="280" height="200">
+             <h3>Jeep Toy</h3>
+            <p>₹5000.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Colours Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('jeeptoy', 5000.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('jeeptoy', 5000.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-jeeptoy"></div>
+        </section>
+        <section class="product" id="product-1">
+             
+            <img src="https://m.media-amazon.com/images/I/81Y5m-Xpi1L._AC_UF1000,1000_QL80_.jpg" alt="Product 1" width="280" height="200">
+             <h3>Truck Toy</h3>
+            <p>₹3000.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Colours Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('trucktoy', 3000.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('trucktoy', 3000.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-trucktoy"></div>
+        </section>
+        <section class="product" id="product-1">
+             
+            <img src="https://www.jiomart.com/images/product/original/rvbke820ci/whinsy-kids-learning-educational-toys-for-2-year-old-product-images-orvbke820ci-p605686019-0-202310212034.png?im=Resize=(1000,1000)" alt="Product 1" width="280" height="200">
+             <h3>Toy</h3>
+            <p>₹300.00</p> <span class="offer">New Collection</span><br>
+            <p><b>All Colours Available</b></p>
+            <button class="buy-now-btn" onclick="displayBuyNowForm('toy', 300.00)">Buy Now</button>
+            <button class="add-to-cart-btn" onclick="addToCart('toy', 300.00, 'product1.jpg')">Add to Cart</button>
+            <div class="buy-now-form-container" id="buy-now-form-toy"></div>
+        </section>
+        
+    
+
+        </main>
+
+    <footer class="footer">
+        <div class="contain">
+            <div class="footer-links">
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">FAQ</a>
+            </div>
+            <div class="footer-copy">
+                &copy; 2024 Your E-commerce Website. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
